@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    // JSON parsing
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.core:jackson-core'
+
+    // HTTP client
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
+
+    // Logging (optional, can be used with SLF4J bridges)
+    implementation 'org.slf4j:slf4j-api'
+
+    // Unit testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

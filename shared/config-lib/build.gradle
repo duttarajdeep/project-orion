@@ -1,0 +1,30 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    // Only include Spring Boot dependencies needed for config beans
+    api 'org.springframework.boot:spring-boot-autoconfigure'
+    api 'org.springframework.boot:spring-boot-starter'
+
+    // Logging, optional
+    implementation 'org.slf4j:slf4j-api'
+    implementation 'ch.qos.logback:logback-classic'
+
+    // Common annotations
+    implementation 'org.springframework:spring-context'
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

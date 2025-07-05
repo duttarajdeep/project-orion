@@ -1,0 +1,14 @@
+// Root build file for Project Orion (Monorepo with Spring Boot services + shared libs)
+
+rootProject.name = 'orion'
+
+// 🧩 Core services
+include 'services:gateway-service'
+include 'services:schema-generator'
+include 'services:agent-core'
+include 'services:auth-service'
+
+// 🔄 Shared internal libraries
+include 'shared:commons'
+include 'shared:config-lib'
+include 'shared:openai-sdk'
